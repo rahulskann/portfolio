@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0f0d;
+}
+
+* {
+  scrollbar-color: #2a3530 #0b0f0d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: #e7e5dc;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255, 179, 0, 0.06), transparent),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.012) 0px,
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+::selection {
+  background: #ffb300;
+  color: #0b0f0d;
+}
+
+/* focus visibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ffb300;
+  outline-offset: 2px;
+}
+
+.crt-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: #ffb300;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
