@@ -21,6 +21,21 @@ export default function ProjectCard({ project }: { project: Project }) {
           </li>
         ))}
       </ul>
+      {project.links && project.links.length > 0 && (
+        <div className="flex flex-wrap gap-4 mb-4 text-xs">
+          {project.links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan hover:text-amber transition-colors"
+            >
+              ↗ {l.label}
+            </a>
+          ))}
+        </div>
+      )}
       <div className="flex flex-wrap gap-1.5 pt-3 border-t border-line">
         {project.stack.map((s) => (
           <span

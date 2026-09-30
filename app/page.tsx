@@ -1,5 +1,5 @@
 import Nav from "@/components/Nav";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectGrid from "@/components/ProjectGrid";
 import SiteShell from "@/components/SiteShell";
 import { site } from "@/data/site";
 import { projects } from "@/data/projects";
@@ -25,7 +25,7 @@ export default function Home() {
             {[
               ["STATUS", site.status],
               ["BASE", site.location],
-              ["FOCUS", "embedded + full-stack"],
+              ["FOCUS", "software + embedded + digital design"],
               ["EDU", "B.S. Computer Science, Oregon State"],
             ].map(([k, v], i) => (
               <div
@@ -60,11 +60,12 @@ export default function Home() {
         <section id="about" className="mx-auto max-w-5xl px-6 py-16 border-t border-line">
           <div className="text-xs text-dim mb-4"># about.md</div>
           <p className="text-ink/90 leading-7 max-w-2xl text-sm sm:text-base">
-            Computer Science senior at Oregon State University with a focus on software
-            engineering and embedded systems. I build end-to-end&nbsp;— from AI-driven
-            healthcare prototypes down to firmware on a bare Arduino Uno. Comfortable moving
-            between full-stack development, real-time signal processing, and AI-assisted
-            workflows, and I like projects that touch both the code and the copper.
+            Computer Science graduate of Oregon State University (Computer Systems option)
+            working across software, embedded systems, and digital design. I build
+            end-to-end&nbsp;— from AI-driven healthcare prototypes and compilers down to FPGA
+            logic in SystemVerilog and firmware on AVR and Arduino boards. Comfortable moving
+            between full-stack development, real-time signal processing, and hardware, and I
+            like projects that touch both the code and the copper.
           </p>
 
           <div className="mt-10 text-xs text-dim mb-4"># coursework.md</div>
@@ -88,11 +89,7 @@ export default function Home() {
         <section id="projects" className="mx-auto max-w-5xl px-6 py-16 border-t border-line">
           <div className="text-xs text-dim mb-2">$ ls ./projects</div>
           <h2 className="text-xl sm:text-2xl font-bold text-ink mb-8">Projects</h2>
-          <div className="grid sm:grid-cols-2 gap-5">
-            {projects.map((p) => (
-              <ProjectCard key={p.title} project={p} />
-            ))}
-          </div>
+          <ProjectGrid projects={projects} />
         </section>
 
         {/* SKILLS */}
@@ -130,8 +127,8 @@ export default function Home() {
             </div>
             <div className="text-dim text-xs mb-2">On-campus Representative · Lead Officer · Treasurer</div>
             <p className="text-sm text-ink/80 leading-6">
-              Helped coordinate multiple hackathons, fostering innovation and collaboration
-              among students.
+              Helped coordinate multiple hackathons, many with hardware-build tracks, fostering
+              innovation and collaboration among students.
             </p>
           </div>
         </section>
@@ -144,7 +141,8 @@ export default function Home() {
           <div className="text-xs text-dim mb-2">$ ./contact --init</div>
           <h2 className="text-xl sm:text-2xl font-bold text-ink mb-6">Contact</h2>
           <p className="text-dim text-sm mb-6 max-w-md">
-            Open to embedded systems and software engineering roles. Reach out directly:
+            Open to software engineering, embedded systems, and hardware design roles. Reach out
+            directly:
           </p>
           <a
             href={`mailto:${site.email}`}
@@ -157,7 +155,7 @@ export default function Home() {
         <footer className="mx-auto max-w-5xl px-6 py-8 border-t border-line text-xs text-dim flex justify-between">
           <span>{site.location}</span>
           <span>
-            uptime: since {new Date().getFullYear()}
+            last updated: 2026-09
             <span className="crt-cursor animate-blink" />
           </span>
         </footer>
